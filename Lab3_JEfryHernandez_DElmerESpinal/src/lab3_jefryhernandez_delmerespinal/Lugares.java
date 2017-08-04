@@ -15,6 +15,11 @@ public class Lugares {
     private double extension;
     protected ArrayList<Integrante> integrantes = new ArrayList();
 
+    public Lugares() {
+    }
+
+    
+    
     public Lugares(double extension) {
         this.extension = extension;
         

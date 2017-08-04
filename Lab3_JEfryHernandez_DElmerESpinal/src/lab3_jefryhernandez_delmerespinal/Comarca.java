@@ -15,17 +15,42 @@ public class Comarca extends Lugares {
 
     private int casa;
 
+    public Comarca() {
+        super();
+    }
+
+    
+    
+    
     public Comarca(int casa, double extension) {
         super(extension);
         this.casa = casa;
 
-        for (Integrante inte : integrantes) {
-            if (inte instanceof Hobbit) {
-             ((Hobbit) inte).ataque+=100;
-             ((Hobbit) inte).defensa+=100;
-             ((Hobbit) inte).curacion+=100;
-            }
-        }
-
     }
+
+    public int getCasa() {
+        return casa;
+    }
+
+    public void setCasa(int casa) {
+        this.casa = casa;
+    }
+
+    public void addIntegrante(Integrante integrante) {
+        if (integrante instanceof Hobbit) {
+            ((Hobbit) integrante).ataque += 100;
+            ((Hobbit) integrante).defensa += 100;
+            ((Hobbit) integrante).curacion += 100;
+        }
+        integrantes.add(integrante);
+        
+    }
+
+    @Override
+    public String toString() {
+        return "Comarca: numero de casas=" + casa;
+    }
+    
+    
+
 }
