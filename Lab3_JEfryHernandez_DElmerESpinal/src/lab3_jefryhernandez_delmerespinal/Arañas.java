@@ -12,8 +12,8 @@ package lab3_jefryhernandez_delmerespinal;
 public class Arañas extends Bestia{
     private String sexo;
 
-    public Arañas(String sexo, int garra, String veneno, int vida, int ataque, int curacion) {
-        super(garra, veneno, vida, ataque, curacion);
+    public Arañas(String sexo, int garra, String veneno, int vida) {
+        super(garra, veneno, vida);
         this.sexo = sexo;
     }
 

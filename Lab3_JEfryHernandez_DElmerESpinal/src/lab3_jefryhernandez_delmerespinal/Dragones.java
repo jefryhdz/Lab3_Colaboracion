@@ -11,8 +11,8 @@ package lab3_jefryhernandez_delmerespinal;
  */
 public class Dragones extends Bestia{
     private double longitud;
-    public Dragones(int garra, String veneno, int vida, int ataque, int curacion) {
-        super(garra, veneno, vida, ataque, curacion);
+    public Dragones(int garra, String veneno, int vida) {
+        super(garra, veneno, vida);
     }
 
     public double getLongitud() {

@@ -15,8 +15,8 @@ public class Aguila extends Bestia {
 
     private Color color;
 
-    public Aguila(Color color, int garra, String veneno, int vida, int ataque, int curacion) {
-        super(garra, veneno, vida, ataque, curacion);
+    public Aguila(Color color, int garra, String veneno, int vida) {
+        super(garra, veneno, vida);
         this.color = color;
     }
 

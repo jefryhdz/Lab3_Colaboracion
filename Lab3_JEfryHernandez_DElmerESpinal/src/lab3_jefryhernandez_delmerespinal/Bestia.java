@@ -13,15 +13,11 @@ public class Bestia {
     private int garra;
     private String veneno;
     private int vida;
-    private int ataque;
-    private int curacion;
 
-    public Bestia(int garra, String veneno, int vida, int ataque, int curacion) {
+    public Bestia(int garra, String veneno, int vida) {
         this.garra = garra;
         this.veneno = veneno;
         this.vida = vida;
-        this.ataque = ataque;
-        this.curacion = curacion;
     }
 
     public int getGarra() {
@@ -48,25 +44,10 @@ public class Bestia {
         this.vida = vida;
     }
 
-    public int getAtaque() {
-        return ataque;
-    }
-
-    public void setAtaque(int ataque) {
-        this.ataque = ataque;
-    }
-
-    public int getCuracion() {
-        return curacion;
-    }
-
-    public void setCuracion(int curacion) {
-        this.curacion = curacion;
-    }
 
     @Override
     public String toString() {
-        return "Bestia {" + "garra = " + garra + ", veneno = " + veneno + ", vida = " + vida + ", ataque = " + ataque + ", curacion = " + curacion + '}';
+        return "Bestia {" + "garra = " + garra + ", veneno = " + veneno + ", vida = " + vida +'}';
     }
     
 }

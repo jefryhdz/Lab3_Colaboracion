@@ -12,8 +12,8 @@ package lab3_jefryhernandez_delmerespinal;
 public class Balrogs extends Bestia {
     private String latigo;
 
-    public Balrogs(int garra, String veneno, int vida, int ataque, int curacion) {
-        super(garra, veneno, vida, ataque, curacion);
+    public Balrogs(int garra, String veneno, int vida) {
+        super(garra, veneno, vida);
     }
 
     public String getLatigo() {

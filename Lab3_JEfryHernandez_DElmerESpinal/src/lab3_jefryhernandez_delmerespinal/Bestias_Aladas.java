@@ -13,8 +13,8 @@ public class Bestias_Aladas extends Bestia {
 
     private long Velocidad;
 
-    public Bestias_Aladas(long Velocidad, int garra, String veneno, int vida, int ataque, int curacion) {
-        super(garra, veneno, vida, ataque, curacion);
+    public Bestias_Aladas(long Velocidad, int garra, String veneno, int vida) {
+        super(garra, veneno, vida);
         this.Velocidad = Velocidad;
     }
 
