@@ -191,7 +191,7 @@ public class Lab3_JEfryHernandez_DElmerESpinal {
                             Long velocidad = read.nextLong();
                             bestia = new Bestias_Aladas(velocidad, garras, veneno, vida);
                             break;
-                        case 'e':
+                        default:
                             System.out.println("Ingrese la longitud del ala: ");
                             double longitud = read.nextDouble();
                             bestia = new Dragones(longitud, garras, veneno, vida);
