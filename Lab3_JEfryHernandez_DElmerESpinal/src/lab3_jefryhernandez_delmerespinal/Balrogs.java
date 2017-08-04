@@ -10,10 +10,12 @@ package lab3_jefryhernandez_delmerespinal;
  * @author Jefry Hernandez
  */
 public class Balrogs extends Bestia {
+
     private String latigo;
 
-    public Balrogs(int garra, String veneno, int vida) {
+    public Balrogs(String latigo, int garra, String veneno, int vida) {
         super(garra, veneno, vida);
+        this.latigo = latigo;
     }
 
     public String getLatigo() {
@@ -28,6 +30,5 @@ public class Balrogs extends Bestia {
     public String toString() {
         return "Balrogs{" + "latigo=" + latigo + '}';
     }
-    
-    
+
 }

@@ -18,12 +18,14 @@ import java.util.Scanner;
  * @author Jefry Hernandez
  */
 public class Lab3_JEfryHernandez_DElmerESpinal {
-static ArrayList<Integrante> integrantes = new ArrayList();
+
+    static ArrayList<Integrante> integrantes = new ArrayList();
+
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+
         String Menu = "Menu: \n"
                 + "a) Agregar un integrante\n"
                 + "b) Simular batalla\n"
@@ -131,7 +133,7 @@ static ArrayList<Integrante> integrantes = new ArrayList();
                             }
                             nuevo = new Hombre(arm, nombre, apellido, altura, nacimiento);
                             break;
-                        case 'e':
+                        default:
                             System.out.println("Tiene baston: ");
                             boolean baston = false;
                             boolean sombrero = false;
@@ -143,7 +145,8 @@ static ArrayList<Integrante> integrantes = new ArrayList();
                             }
                             nuevo = new Maiar(sombrero, baston, nombre, apellido, altura, nacimiento);
                             break;
-                    }integrantes.add(nuevo);
+                    }
+                    integrantes.add(nuevo);
                     System.out.println("Vamos a crear una bestia");
                     int garras;
                     do {
@@ -155,6 +158,46 @@ static ArrayList<Integrante> integrantes = new ArrayList();
                     veneno = read.next();
                     Random ale = new Random();
                     int vida = 50 + ale.nextInt(100);
+                    nuevo.ataque += vida;
+                    nuevo.curacion += vida;
+                    nuevo.defensa += vida;
+                    Bestia bestia;
+                    System.out.println("Escoja la bestia \n"
+                            + "a) Aguila \n"
+                            + "b) Araña"
+                            + "\nc) Balrogs"
+                            + "\nd) Bestias Aladas \n"
+                            + "e) Dragones");
+                    char bestial = read.next().charAt(0);
+                    switch (bestial) {
+                        case 'a':
+                            System.out.println("Ingrese el color del plumaje: ");
+                            String color = read.next();
+                            bestia = new Aguila(color, garras, veneno, vida);
+                            break;
+                        case 'b':
+                            System.out.println("Ingrese el sexo [M/F]: ");
+                            char sexo = read.next().charAt(0);
+                            if (sexo == 'M' || sexo == 'm') {
+                                vida += 50;
+                            }
+                            bestia = new Arañas(sexo, garras, veneno, vida);
+                            break;
+                        case 'c':
+                            System.out.println("Tiene latigo: ");
+                            String latigo = read.next();
+                            bestia = new Balrogs(latigo, garras, veneno, vida);
+                            break;
+                        case 'd':
+                            System.out.println("Ingrese la velocidad: ");
+                            Long velocidad = read.nextLong();
+                            bestia = new Bestias_Aladas(velocidad, garras, veneno, vida);
+                            break;
+                        case 'e':
+                            System.out.println("Ingrese la longitud del ala: ");
+                            double longitud = read.nextDouble();
+                            bestia = new Dragones(longitud, garras, veneno, vida);
+                    }
                     break;
 
             }

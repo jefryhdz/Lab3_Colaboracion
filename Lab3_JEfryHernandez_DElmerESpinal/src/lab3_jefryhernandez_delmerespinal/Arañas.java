@@ -10,20 +10,22 @@ package lab3_jefryhernandez_delmerespinal;
  * @author Jefry Hernandez
  */
 public class Arañas extends Bestia{
-    private String sexo;
+    private char sexo;
 
-    public Arañas(String sexo, int garra, String veneno, int vida) {
+    public Arañas(char sexo, int garra, String veneno, int vida) {
         super(garra, veneno, vida);
         this.sexo = sexo;
     }
 
-    public String getSexo() {
+    public char getSexo() {
         return sexo;
     }
 
-    public void setSexo(String sexo) {
+    public void setSexo(char sexo) {
         this.sexo = sexo;
     }
+
+   
 
     @Override
     public String toString() {

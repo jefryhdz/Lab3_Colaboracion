@@ -13,18 +13,18 @@ import java.awt.Color;
  */
 public class Aguila extends Bestia {
 
-    private Color color;
+    private String color;
 
-    public Aguila(Color color, int garra, String veneno, int vida) {
+    public Aguila(String color, int garra, String veneno, int vida) {
         super(garra, veneno, vida);
         this.color = color;
     }
 
-    public Color getColor() {
+    public String getColor() {
         return color;
     }
 
-    public void setColor(Color color) {
+    public void setColor(String color) {
         this.color = color;
     }
 
