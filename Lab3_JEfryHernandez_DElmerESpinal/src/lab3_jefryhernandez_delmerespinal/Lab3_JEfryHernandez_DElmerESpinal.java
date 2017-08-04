@@ -29,7 +29,7 @@ public class Lab3_JEfryHernandez_DElmerESpinal {
         String Menu = "Menu: \n"
                 + "a) Agregar un integrante\n"
                 + "b) Simular batalla\n"
-                + "c) "
+                + "c) Imprimir \n"
                 + "d) Salir\n";
 
         Scanner read = new Scanner(System.in);
@@ -146,7 +146,7 @@ public class Lab3_JEfryHernandez_DElmerESpinal {
                             nuevo = new Maiar(sombrero, baston, nombre, apellido, altura, nacimiento);
                             break;
                     }
-                    integrantes.add(nuevo);
+                    
                     System.out.println("Vamos a crear una bestia");
                     int garras;
                     do {
@@ -158,9 +158,7 @@ public class Lab3_JEfryHernandez_DElmerESpinal {
                     veneno = read.next();
                     Random ale = new Random();
                     int vida = 50 + ale.nextInt(100);
-                    nuevo.ataque += vida;
-                    nuevo.curacion += vida;
-                    nuevo.defensa += vida;
+                    
                     Bestia bestia;
                     System.out.println("Escoja la bestia \n"
                             + "a) Aguila \n"
@@ -198,6 +196,19 @@ public class Lab3_JEfryHernandez_DElmerESpinal {
                             double longitud = read.nextDouble();
                             bestia = new Dragones(longitud, garras, veneno, vida);
                     }
+                    nuevo.ataque += vida;
+                    nuevo.curacion += vida;
+                    nuevo.defensa += vida;
+                    nuevo.setBestia(bestia);
+                    integrantes.add(nuevo);
+
+                    break;
+                case 'c':
+                    for (Integrante inte : integrantes) {
+                        System.out.println(inte.getNombre() + " " + inte.getBestia() + " " + inte.getFecha_nacimiento());
+
+                    }
+
                     break;
 
             }
