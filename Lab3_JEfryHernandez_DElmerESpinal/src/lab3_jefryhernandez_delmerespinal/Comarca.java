@@ -18,10 +18,7 @@ public class Comarca extends Lugares {
     public Comarca() {
         super();
     }
-
-    
-    
-    
+  
     public Comarca(int casa, double extension) {
         super(extension);
         this.casa = casa;

@@ -8,7 +8,9 @@ package lab3_jefryhernandez_delmerespinal;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -16,11 +18,12 @@ import java.util.Scanner;
  * @author Jefry Hernandez
  */
 public class Lab3_JEfryHernandez_DElmerESpinal {
-
+static ArrayList<Integrante> integrantes = new ArrayList();
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
         String Menu = "Menu: \n"
                 + "a) Agregar un integrante\n"
                 + "b) Simular batalla\n"
@@ -37,7 +40,7 @@ public class Lab3_JEfryHernandez_DElmerESpinal {
             switch (opc) {
                 case 'a':
                     Integrante nuevo;
-                    
+
                     System.out.println("Ingrese el nombre");
                     String nombre = read.next();
                     System.out.println("Ingrese el apellido");
@@ -69,7 +72,7 @@ public class Lab3_JEfryHernandez_DElmerESpinal {
                                 arma = true;
                             }
                             nuevo = new Elfo(arma, nombre, apellido, altura, nacimiento);
-                            
+
                             break;
                         case 'b':
                             System.out.println("Lleva barba [S/N]");
@@ -99,14 +102,14 @@ public class Lab3_JEfryHernandez_DElmerESpinal {
                                 hacha = true;
                             }
                             Integrante hermano = new Enano(barba, hacha, nombre, apellido, altura, nacimiento);
-                            ((Enano)nuevo).setHermano((Enano)hermano);
-                            ((Enano)hermano).setHermano((Enano)hermano);
+                            ((Enano) nuevo).setHermano((Enano) hermano);
+                            ((Enano) hermano).setHermano((Enano) hermano);
                             break;
                         case 'c':
                             System.out.println("Ingrese la cantidad de anillos:");
                             int anillos = read.nextInt();
                             nuevo = new Hobbit(anillos, nombre, apellido, altura, nacimiento);
-                            
+
                             break;
                         case 'd':
                             System.out.println("Ingrese el arma:\n"
@@ -115,25 +118,43 @@ public class Lab3_JEfryHernandez_DElmerESpinal {
                                     + "c)Arco\n");
                             char armas = read.next().charAt(0);
                             Arma arm;
-                            switch(armas){
+                            switch (armas) {
                                 case 'a':
-                                    arm = new Arma("Espada",150);
+                                    arm = new Arma("Espada", 150);
                                     break;
                                 case 'b':
-                                    arm = new Arma("Lanza",100);
+                                    arm = new Arma("Lanza", 100);
                                     break;
                                 default:
-                                    arm = new Arma("Arco",115);
-                                    
+                                    arm = new Arma("Arco", 115);
+
                             }
                             nuevo = new Hombre(arm, nombre, apellido, altura, nacimiento);
                             break;
                         case 'e':
-                            
-                            
-
-                    }
-
+                            System.out.println("Tiene baston: ");
+                            boolean baston = false;
+                            boolean sombrero = false;
+                            char respu = read.next().charAt(0);
+                            if (respu == 's') {
+                                baston = true;
+                            } else {
+                                sombrero = true;
+                            }
+                            nuevo = new Maiar(sombrero, baston, nombre, apellido, altura, nacimiento);
+                            break;
+                    }integrantes.add(nuevo);
+                    System.out.println("Vamos a crear una bestia");
+                    int garras;
+                    do {
+                        System.out.println("Ingrese el numero de garras: ");
+                        garras = read.nextInt();
+                    } while (garras < 0 || garras > 6);
+                    String veneno = "";
+                    System.out.println("Tiene veneno: ");
+                    veneno = read.next();
+                    Random ale = new Random();
+                    int vida = 50 + ale.nextInt(100);
                     break;
 
             }
