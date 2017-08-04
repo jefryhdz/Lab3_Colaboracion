@@ -19,8 +19,8 @@ public class Hobbit extends Integrante{
         super();
     }
 
-    public Hobbit(int anillos, String nombre, String apellido, double altura, Date fecha_nacimiento, Bestia bestia) {
-        super(nombre, apellido, altura, fecha_nacimiento, bestia);
+    public Hobbit(int anillos, String nombre, String apellido, double altura, Date fecha_nacimiento) {
+        super(nombre, apellido, altura, fecha_nacimiento);
         this.anillos = anillos;
         
         ataque = 10 + (anillos*40);

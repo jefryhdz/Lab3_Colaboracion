@@ -7,7 +7,7 @@ import java.util.Date;
  *
  * @author Owner
  */
-public class Integrante {
+public abstract class Integrante {
     private String nombre;
     private String apellido;
     private double altura;
@@ -20,12 +20,12 @@ public class Integrante {
     public Integrante() {
     }
 
-    public Integrante(String nombre, String apellido, double altura, Date fecha_nacimiento, Bestia bestia) {
+    public Integrante(String nombre, String apellido, double altura, Date fecha_nacimiento) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.altura = altura;
         this.fecha_nacimiento = fecha_nacimiento;
-        this.bestia = bestia;
+        
        
     }
 

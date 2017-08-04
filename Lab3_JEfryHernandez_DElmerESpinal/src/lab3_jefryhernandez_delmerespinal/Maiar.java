@@ -20,8 +20,8 @@ public class Maiar extends Integrante {
         super();
     }
 
-    public Maiar(boolean sombrero, boolean baston, String nombre, String apellido, double altura, Date fecha_nacimiento, Bestia bestia) {
-        super(nombre, apellido, altura, fecha_nacimiento, bestia);
+    public Maiar(boolean sombrero, boolean baston, String nombre, String apellido, double altura, Date fecha_nacimiento) {
+        super(nombre, apellido, altura, fecha_nacimiento);
         this.sombrero = sombrero;
         this.baston = baston;
 

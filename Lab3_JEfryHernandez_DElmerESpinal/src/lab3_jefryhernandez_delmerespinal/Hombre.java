@@ -14,8 +14,8 @@ public class Hombre extends Integrante{
         super();
     }
 
-    public Hombre(Arma arma, String nombre, String apellido, double altura, Date fecha_nacimiento, Bestia bestia) {
-        super(nombre, apellido, altura, fecha_nacimiento, bestia);
+    public Hombre(Arma arma, String nombre, String apellido, double altura, Date fecha_nacimiento) {
+        super(nombre, apellido, altura, fecha_nacimiento);
         this.arma = arma;
         
         ataque = 150 + arma.getAtaque();

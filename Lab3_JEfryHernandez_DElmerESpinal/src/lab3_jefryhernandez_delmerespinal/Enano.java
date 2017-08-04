@@ -20,8 +20,8 @@ public class Enano extends Integrante{
         super();
     }
 
-    public Enano(boolean barba, boolean hacha, String nombre, String apellido, double altura, Date fecha_nacimiento, Bestia bestia) {
-        super(nombre, apellido, altura, fecha_nacimiento, bestia);
+    public Enano(boolean barba, boolean hacha, String nombre, String apellido, double altura, Date fecha_nacimiento) {
+        super(nombre, apellido, altura, fecha_nacimiento);
         this.barba = barba;
         this.hacha = hacha;
         
