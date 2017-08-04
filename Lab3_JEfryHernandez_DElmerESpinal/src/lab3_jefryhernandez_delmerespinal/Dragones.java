@@ -5,32 +5,27 @@
  */
 package lab3_jefryhernandez_delmerespinal;
 
-import java.awt.Color;
-
 /**
  *
  * @author Jefry Hernandez
  */
-public class Aguila extends Bestia {
-
-    private Color color;
-
-    public Aguila(Color color, int garra, String veneno, int vida, int ataque, int curacion) {
+public class Dragones extends Bestia{
+    private double longitud;
+    public Dragones(int garra, String veneno, int vida, int ataque, int curacion) {
         super(garra, veneno, vida, ataque, curacion);
-        this.color = color;
     }
 
-    public Color getColor() {
-        return color;
+    public double getLongitud() {
+        return longitud;
     }
 
-    public void setColor(Color color) {
-        this.color = color;
+    public void setLongitud(double longitud) {
+        this.longitud = longitud;
     }
 
     @Override
     public String toString() {
-        return "Aguila{" + "color=" + color + '}';
+        return "Dragones{" + "longitud=" + longitud + '}';
     }
-
+    
 }
