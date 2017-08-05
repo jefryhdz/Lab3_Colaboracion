@@ -20,6 +20,7 @@ import java.util.Scanner;
 public class Lab3_JEfryHernandez_DElmerESpinal {
 
     static ArrayList<Integrante> integrantes = new ArrayList();
+    static ArrayList<Historial> historial = new ArrayList();
     static Scanner read = new Scanner(System.in);
 
     /**
@@ -36,7 +37,7 @@ public class Lab3_JEfryHernandez_DElmerESpinal {
                 + "f) Salir\n";
 
         char opc = 0;
-        char opc2 = 0;
+
         do {
             System.out.println(Menu);
             opc = read.next().charAt(0);
@@ -55,6 +56,29 @@ public class Lab3_JEfryHernandez_DElmerESpinal {
                     char resp2 = read.next().charAt(0);
                     switch (resp2) {
                         case 'a':
+                            for (Integrante inte : integrantes) {
+                                System.out.println(integrantes.indexOf(inte) + ") " + inte.getNombre() + " " + inte.getApellido() + " " + inte.getBestia() + "\n "
+                                        + "ATK= " + inte.getAtaque() + "DEF= " + inte.getDefensa() + "CUR= " + inte.getCuracion());
+
+                            }
+                            System.out.println("Seleccione el index del primer jugador:");
+                            int pos = read.nextInt();
+                            System.out.println("Seleccione el index del segundo jugador:");
+                            int pos2 = read.nextInt();
+
+                            Simular(pos,pos2);
+                            break;
+                        case 'b':
+                            System.out.println("Zonas\n a) Comarca \n b) Gondor \n c) Mordor");
+                            System.out.println("Seleccione la zona:");
+                            char zona1 = read.next().charAt(0);
+                            char zona2 = read.next().charAt(0);
+                            
+                            for (Integrante inte : integrantes) {
+                                
+                                
+                            }
+                            
                             break;
 
                     }
@@ -258,27 +282,19 @@ public class Lab3_JEfryHernandez_DElmerESpinal {
 
     }
 
-    public void SimularA() {
-
-        for (Integrante inte : integrantes) {
-            System.out.println(integrantes.indexOf(inte) + ") " + inte.getNombre() + " " + inte.getApellido() + " " + inte.getBestia() + "\n "
-                    + "ATK= " + inte.getAtaque() + "DEF= " + inte.getDefensa() + "CUR= " + inte.getCuracion());
-
-        }
-        System.out.println("Seleccione el index del primer jugador:");
-        int pos = read.nextInt();
-        System.out.println("Seleccione el index del segundo jugador:");
-        int pos2 = read.nextInt();
+    public static void Simular(int pos, int pos2) {
 
         Integrante peleador1 = integrantes.get(pos);
         Integrante peleador2 = integrantes.get(pos2);
 
         Random ale = new Random();
         int cont = ale.nextInt(2);
+        int turno1 = 1;
+        int turno2 = 1;
 
         while (peleador1.getDefensa() <= 0 || peleador2.getDefensa() <= 0) {
             if (cont % 2 == 0) {
-                if (peleador2.getBestia().getVida() < 0) {
+                if (peleador2.getBestia().getVida() <= 0 ) {
                     int atk = peleador1.getAtaque();
                     int vidaB = peleador2.getBestia().getVida();
 
@@ -291,9 +307,13 @@ public class Lab3_JEfryHernandez_DElmerESpinal {
                     peleador2.setDefensa(vida - atk);
 
                 }
-
+                if (turno1 % 3 == 0) {
+                    int vida = peleador1.getDefensa() + peleador1.getCuracion();
+                    peleador1.setDefensa(vida);
+                }
+                turno1++;
             } else {
-                if (peleador1.getBestia().getVida() < 0) {
+                if (peleador1.getBestia().getVida() <= 0) {
                     int atk = peleador2.getAtaque();
                     int vidaB = peleador1.getBestia().getVida();
 
@@ -306,8 +326,19 @@ public class Lab3_JEfryHernandez_DElmerESpinal {
                     peleador1.setDefensa(vida - atk);
 
                 }
+                if (turno2 % 3 == 0) {
+                    int vida = peleador2.getDefensa() + peleador2.getCuracion();
+                    peleador2.setDefensa(vida);
+                }
+                turno2++;
             }
             cont++;
+        }
+        
+        if(peleador1.getDefensa()<0){
+            historial.add(new Historial(peleador2,peleador1));
+        }else{
+            historial.add(new Historial(peleador1,peleador2));
         }
 
     }
