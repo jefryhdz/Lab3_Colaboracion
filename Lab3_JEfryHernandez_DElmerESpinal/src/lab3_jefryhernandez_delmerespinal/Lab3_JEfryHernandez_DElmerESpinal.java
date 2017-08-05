@@ -43,13 +43,26 @@ public class Lab3_JEfryHernandez_DElmerESpinal {
 
             switch (opc) {
                 case 'a':
-                    
+
                     integrantes.add(getIntegrante());
-                    
+
                     break;
+                case 'b':
+                    System.out.println("Elija tipo de simulacion\n"
+                            + "a) Por intengrante\n"
+                            + "b) Por lugar\n");
+
+                    char resp2 = read.next().charAt(0);
+                    switch (resp2) {
+                        case 'a':
+                            break;
+
+                    }
+
                 case 'c':
                     for (Integrante inte : integrantes) {
-                        System.out.println(inte.getNombre() + " " + inte.getBestia() + " " + inte.getFecha_nacimiento());
+                        System.out.println(inte.getNombre() + " " + inte.getApellido() + " " + inte.getBestia() + "\n "
+                                + "ATK= " + inte.getAtaque() + "DEF= " + inte.getDefensa() + "CUR= " + inte.getCuracion());
 
                     }
 
@@ -102,7 +115,7 @@ public class Lab3_JEfryHernandez_DElmerESpinal {
                 + "c) Hobbit\n"
                 + "d) Hombres\n"
                 + "e) Maiar");
-        
+
         char opc2 = read.next().charAt(0);
         switch (opc2) {
             case 'a':
@@ -242,6 +255,60 @@ public class Lab3_JEfryHernandez_DElmerESpinal {
         nuevo.setBestia(bestia);
 
         return nuevo;
+
+    }
+
+    public void SimularA() {
+
+        for (Integrante inte : integrantes) {
+            System.out.println(integrantes.indexOf(inte) + ") " + inte.getNombre() + " " + inte.getApellido() + " " + inte.getBestia() + "\n "
+                    + "ATK= " + inte.getAtaque() + "DEF= " + inte.getDefensa() + "CUR= " + inte.getCuracion());
+
+        }
+        System.out.println("Seleccione el index del primer jugador:");
+        int pos = read.nextInt();
+        System.out.println("Seleccione el index del segundo jugador:");
+        int pos2 = read.nextInt();
+
+        Integrante peleador1 = integrantes.get(pos);
+        Integrante peleador2 = integrantes.get(pos2);
+
+        Random ale = new Random();
+        int cont = ale.nextInt(2);
+
+        while (peleador1.getDefensa() <= 0 || peleador2.getDefensa() <= 0) {
+            if (cont % 2 == 0) {
+                if (peleador2.getBestia().getVida() < 0) {
+                    int atk = peleador1.getAtaque();
+                    int vidaB = peleador2.getBestia().getVida();
+
+                    peleador2.getBestia().setVida(vidaB - atk);
+
+                } else {
+                    int atk = peleador1.getAtaque();
+                    int vida = peleador2.getDefensa();
+
+                    peleador2.setDefensa(vida - atk);
+
+                }
+
+            } else {
+                if (peleador1.getBestia().getVida() < 0) {
+                    int atk = peleador2.getAtaque();
+                    int vidaB = peleador1.getBestia().getVida();
+
+                    peleador1.getBestia().setVida(vidaB - atk);
+
+                } else {
+                    int atk = peleador2.getAtaque();
+                    int vida = peleador1.getDefensa();
+
+                    peleador1.setDefensa(vida - atk);
+
+                }
+            }
+            cont++;
+        }
 
     }
 
