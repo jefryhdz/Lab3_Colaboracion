@@ -34,7 +34,8 @@ public class Lab3_JEfryHernandez_DElmerESpinal {
                 + "c) Imprimir \n"
                 + "d) Modificar\n"
                 + "e) Eliminar\n"
-                + "f) Salir\n";
+                + "f) Salir\n"
+                + "g) Listar Historial";
 
         char opc = 0;
 
@@ -72,9 +73,84 @@ public class Lab3_JEfryHernandez_DElmerESpinal {
                             System.out.println("Zonas\n a) Comarca \n b) Gondor \n c) Mordor");
                             System.out.println("Seleccione la zona:");
                             char zona1 = read.next().charAt(0);
+                            System.out.println("Selecione la segunda zona:");
                             char zona2 = read.next().charAt(0);
                             
+                            Lugares zone1;
+                            Lugares zone2;
+                            
+                            switch(zona1){
+                                case 'a':
+                                    System.out.println("Ingrese el numero de casas");
+                                    int casas = read.nextInt();
+                                    System.out.println("Ingrese extension");
+                                    double extension = read.nextDouble();
+                                    zone1 = new Comarca(casas, extension);
+                                    
+                                    break;
+                                case 'b':
+                                    System.out.println("Ingrese el numero de parajes");
+                                    int parajes = read.nextInt();
+                                    System.out.println("Ingrese extension");
+                                    extension = read.nextDouble();
+                                    zone1 = new Gondor(parajes, extension);
+                                    
+                                    break;
+                                    
+                                    
+                                default:
+                                    System.out.println("Ingrese el numero de guardianes");
+                                    int guardianes = read.nextInt();
+                                    System.out.println("Ingrese extension");
+                                    extension = read.nextDouble();
+                                    zone1 = new Mordor(guardianes, extension);
+                                    
+                                    
+                                    break;
+                 
+                                
+                            }
+                            
+                            switch(zona2){
+                                case 'a':
+                                    System.out.println("Ingrese el numero de casas");
+                                    int casas = read.nextInt();
+                                    System.out.println("Ingrese extension");
+                                    double extension = read.nextDouble();
+                                    zone2 = new Comarca(casas, extension);
+                                    
+                                    break;
+                                case 'b':
+                                    System.out.println("Ingrese el numero de parajes");
+                                    int parajes = read.nextInt();
+                                    System.out.println("Ingrese extension");
+                                    extension = read.nextDouble();
+                                    zone2 = new Gondor(parajes, extension);
+                                    
+                                    break;
+                                    
+                                    
+                                default:
+                                    System.out.println("Ingrese el numero de guardianes");
+                                    int guardianes = read.nextInt();
+                                    System.out.println("Ingrese extension");
+                                    extension = read.nextDouble();
+                                    zone2 = new Mordor(guardianes, extension);
+                                    
+                                    
+                                    break;
+                 
+                                
+                            }
+                            
                             for (Integrante inte : integrantes) {
+                                System.out.println("Elija a que zona va a ir " + inte.getNombre() + "[1/2]");
+                                char zon = read.next().charAt(0);
+                                if(zon == '1'){
+                                    zone1.getIntegrantes().add(inte);
+                                }else{
+                                    zone2.getIntegrantes().add(inte);
+                                }
                                 
                                 
                             }
@@ -107,6 +183,12 @@ public class Lab3_JEfryHernandez_DElmerESpinal {
                     }
                     pos = read.nextInt();
                     integrantes.remove(pos);
+                    break;
+                    
+                case 'g':
+                    for (Historial hi : historial) {
+                        System.out.println(hi);
+                    }
                     break;
 
             }
